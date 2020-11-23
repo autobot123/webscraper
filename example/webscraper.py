@@ -49,7 +49,7 @@ class WebScraper():
 
 
 def main():
-    EJJR_radio_x = WebScraper('https://www.radiox.co.uk/radio/podcasts/elis-james-and-john-robins-radio-x-podcast/')
+    EJJR_radio_x = WebScraper('https://www.its.co.uk/search.aspx?rs=dewalt-dcf887&directSearch=true#/embedded/query=dewalt%20dcf887&page=1&query_name=match_and')
     html = EJJR_radio_x.simple_get()
     pprint.pprint(html)
 
