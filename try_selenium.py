@@ -23,7 +23,7 @@ def get_element_by_xpath(driver: webdriver, xpath: str, timeout: int=10):
 def get_element_proper_by_class_name(driver: webdriver, class_name: str, timeout: int=10):
     sleep_random()
     element = WebDriverWait(driver, timeout).until(
-        EC.presence_of_element_located((By.CLASS_NAME, class_name))
+        EC.presence_of_all_elements_located((By.CLASS_NAME, class_name))
     )
     return element
 
@@ -56,7 +56,7 @@ nvidia_manufacturer_button_xpath = '//*[@id="manufacturer_filter"]/div/div/div/u
 manufacturer_tickbox = get_element_by_xpath(driver, nvidia_manufacturer_button_xpath)
 manufacturer_tickbox.click()
 
-buy_btns = [get_element_proper_by_class_name(driver, 'featured-buy-link')]
+buy_btns = get_element_proper_by_class_name(driver, 'featured-buy-link')
 
 for btn in buy_btns:
     print(f"button text = {btn.text}")
