@@ -59,7 +59,7 @@ manufacturer_tickbox.click()
 buy_btns = get_element_proper_by_class_name(driver, 'featured-buy-link')
 
 for btn in buy_btns:
-    print(f"button text = {btn.text}")
     if btn.text != 'OUT OF STOCK':
-        print(f"gpu in stock")
-
+        print(f"gpu is not out of stock")
+    elif btn.txt == 'OUT OF STOCK':
+        print(f"button text = {btn.text}")
