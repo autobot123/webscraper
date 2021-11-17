@@ -20,7 +20,7 @@ class Webscraper:
             chrome_options.add_argument('--headless')
         else:
             print("Running in interactive mode")
-        return  webdriver.Chrome(self.chromedriver_path, options=chrome_options)
+        return webdriver.Chrome(self.chromedriver_path, options=chrome_options)
 
     def sleep_random(self, min: int=1, max: int=5) -> None:
         duration = randint(min,max)
