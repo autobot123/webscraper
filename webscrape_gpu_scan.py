@@ -1,7 +1,7 @@
 from webscraper import Webscraper
 
 def main():
-    webscraper = Webscraper()
+    webscraper = Webscraper(set_headless=False)
 
     nvidia_store_url = r'https://store.nvidia.com/en-gb/geforce/store/'
     webscraper.driver.get(nvidia_store_url)
