@@ -1,0 +1,5 @@
+from webscrape_gpu_scan import webscrape_gpu_scan
+from webscrape_tangent_ampster import webscrape_tangent_ampster
+
+webscrape_gpu_scan()
+webscrape_tangent_ampster()

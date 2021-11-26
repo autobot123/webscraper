@@ -1,7 +1,7 @@
 from webscraper import Webscraper
 
-def main():
-    webscraper = Webscraper(set_headless=False)
+def webscrape_gpu_scan():
+    webscraper = Webscraper(set_headless=True)
 
     nvidia_store_url = r'https://store.nvidia.com/en-gb/geforce/store/'
     webscraper.driver.get(nvidia_store_url)
@@ -30,4 +30,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    webscrape_gpu_scan()
