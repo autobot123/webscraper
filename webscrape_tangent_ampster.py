@@ -12,7 +12,6 @@ def main():
     accept_cookies = webscraper.get_element_by_xpath(webscraper.driver, accept_cookes_xpath)
     accept_cookies.click()
 
-    tangent_ampster_price_xpath = r'//*[@id="product-price-17099"]/span'
     prices = webscraper.get_element_proper_by_class_name(webscraper.driver, 'price')
     tangent_ampster_price = re.sub("[^0-9]", "", prices[1].text)
 
