@@ -5,12 +5,24 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 from random import randint
 from typing import Type
+import re
 
 
 class Webscraper:
     def __init__(self, set_headless: bool = False, chromedriver_path: str = "C:\Program Files (x86)\chromedriver.exe") -> None:
         self.chromedriver_path = chromedriver_path
         self.driver = self.create_webdriver(set_headless = set_headless)
+        browser_version = self.driver.capabilities['browserVersion']
+        chromedriver_version = self.driver.capabilities['chrome']['chromedriverVersion']
+        # print(f"DEBUG: Browser version = {browser_version}; chromedriver version = {chromedriver_version}")
+
+        regex_match = "^\d\d."
+        browser_version_major = re.search(regex_match, browser_version).group().replace('.','')
+        chromedriver_version_major = re.search(regex_match, chromedriver_version).group().replace('.','')
+
+        if browser_version_major != chromedriver_version_major:
+            raise Exception (f'Browser major version {browser_version_major} and chromedriver major version {chromedriver_version_major} do not match, please install correct chromedriver version')
+
 
     def create_webdriver(self, set_headless: bool) -> Type[webdriver.chrome.webdriver.WebDriver]:
         print("Creating driver")
@@ -40,3 +52,9 @@ class Webscraper:
             EC.presence_of_all_elements_located((By.CLASS_NAME, class_name))
         )
         return element
+
+    def email_result(self):
+        pass
+
+if __name__ == "__main__":
+    webscraper = Webscraper()
